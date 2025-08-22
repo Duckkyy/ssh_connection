@@ -98,7 +98,7 @@ def main():
                     execute_command(ssh, python_cmd)
                 
                 elif choice == '6':
-                    command = "source ~/miniconda3/etc/profile.d/conda.sh && conda activate wan_gpu && "
+                    command = "source ~/miniconda3/etc/profile.d/conda.sh && conda activate wan_gpu && cd ~/member_files/dai/Index-anisora/anisoraV2_gpu && "
                     python_cmd = "CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port 43210 generate-pi-i2v.py --task i2v-14B --size 960*544 --ckpt_dir Wan2.1-I2V-14B-480P --image image_video --prompt inference.txt --dit_fsdp --t5_fsdp --ulysses_size 4 --base_seed 4096 --frame_num 49"
                     execute_command(ssh, command + python_cmd)
             
